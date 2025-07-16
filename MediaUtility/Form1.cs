@@ -15,6 +15,13 @@ namespace MediaUtility
 
         private void Form1_Load(object sender, EventArgs e)
         {
+   this.FormBorderStyle = FormBorderStyle.None;
+            // Maximize the form to fill the screen
+            this.WindowState = FormWindowState.Maximized;
+
+            // Optional: keep form always on top
+            this.TopMost = true;
+
             pictureBox1.Visible = false;
             axWindowsMediaPlayer1.Visible = false;
             timer1.Interval = 2000; // 2 seconds
@@ -69,12 +76,14 @@ namespace MediaUtility
                 {
                     if (axWindowsMediaPlayer1.URL != videoPath)
                     {
-                        axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+                  
                         axWindowsMediaPlayer1.Visible = true;
                         pictureBox1.Visible = false;
-
+                        axWindowsMediaPlayer1.Dock = DockStyle.Fill;
 
                         axWindowsMediaPlayer1.URL = videoPath;
+                        axWindowsMediaPlayer1.settings.setMode("loop", true);
+
                         axWindowsMediaPlayer1.Ctlcontrols.play();
                     }
                 }

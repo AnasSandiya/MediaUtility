@@ -79,7 +79,16 @@ namespace MediaUtility
                   
                         axWindowsMediaPlayer1.Visible = true;
                         pictureBox1.Visible = false;
+                     //   axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+
+
+
+                        axWindowsMediaPlayer1.uiMode = "none"; // No playback bar or controls
+                        axWindowsMediaPlayer1.stretchToFit = true;
                         axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+                        axWindowsMediaPlayer1.Visible = true; // show video only
+                        axWindowsMediaPlayer1.enableContextMenu = false; // ✅ Disable right-click
+
 
                         axWindowsMediaPlayer1.URL = videoPath;
                         axWindowsMediaPlayer1.settings.setMode("loop", true);
